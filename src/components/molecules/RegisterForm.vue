@@ -69,7 +69,7 @@ const handleSubmit = async () => {
                 router.push('/')
             }, 1000)
         } else {
-            throw new Error(data.data.message || 'Registration failed')
+            throw new Error(data.data || 'Registration failed')
         }
 
     } catch (error) {

@@ -53,10 +53,10 @@ const handleSubmit = async () => {
                 router.push('/dashboard')
             }, 1000);
         } else {
-            if (data.error) {
-                emit('error', data.error)
+            if (data.data) {
+                emit('error', data.data)
             } 
-            throw new Error(data.data.message || 'Login failed')
+            throw new Error(data.data || 'Login failed')
         }
     } catch (error) {
         console.error('Error logging in:', error)

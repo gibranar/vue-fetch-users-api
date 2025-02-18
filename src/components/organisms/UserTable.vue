@@ -75,7 +75,7 @@ const headers = [
 const sortedAndFilteredUsers = computed(() => {
     let filtered = props.users.filter(user => {
         return Object.values(user).some(value =>
-            value.toString().toLowerCase().includes(searchQuery.value.toLowerCase())
+            value?.toString().toLowerCase().includes((searchQuery.value || '').toLowerCase())
         )
     })
 
@@ -96,8 +96,8 @@ const handleSort = (field) => {
     }
 }
 
-const handleSearch = (value) => {
-    searchQuery.value = value
+const handleSearch = (event) => {
+    searchQuery.value = event.target.value
 }
 
 const handleDelete = async (userId) => {
